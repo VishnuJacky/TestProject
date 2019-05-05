@@ -1,3 +1,31 @@
-<p>
-  login works!
-</p>
+<div class="login-form">
+  <form [formGroup]="login" (ngSubmit)="makelogin()">
+    <ul>
+      <li>
+        <label>
+          First Name:
+          <input type="text" formControlName="username">
+        </label>
+      </li>
+      <li>
+        <label>
+          Last Name:
+          <input type="text" formControlName="password" />
+          <span *ngIf="login.value.password.length > 5">
+            strong
+          </span>
+          <span *ngIf="login.value.password.length < 5">
+            Week
+          </span>
+        </label>
+      </li>
+      <li>
+        <button type="submit" [disabled]="!login.valid" > Login</button>
+      </li>
+    </ul>
+  </form>
+</div>
+
+
+
+{{login.value|json }}
