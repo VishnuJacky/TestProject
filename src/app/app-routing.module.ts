@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login/login.component';
-import { WelcomeComponent } from './welcome/welcome/welcome.component';
+import { WelcomeComponent } from './modules/welcome/welcome/welcome.component';
+import { AuthGuard } from './core/guards/auth.guard';
+
+
+
 
 const routes: Routes = [
   {
     path: 'login',
-    loadChildren: './login/login.module#LoginModule',
+    loadChildren: './modules/login/login.module#LoginModule',
+    canActivate: [AuthGuard]
+
   } ,
   {
     path : 'welcome',
@@ -16,7 +21,7 @@ const routes: Routes = [
     path: '**',
     redirectTo: 'welcome'
   }
-  
+
 ];
 
 @NgModule({
