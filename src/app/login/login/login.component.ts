@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   public login: FormGroup;
 
-  public strength;
+  //public strength;
 
   constructor( public fb: FormBuilder) {
     this.login = this.fb.group({
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   makelogin() {
     const value = this.login.value;
     if (value.username === 'hari' && value.password === '123' ) {
-
+      alert('crct');
     }
   }
 
